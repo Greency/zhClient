@@ -7,10 +7,19 @@
 </template>
 <script>
     export default{
+        props: {
+            circular: Boolean,
+            autoplay: Boolean,
+            duration: {
+                type: Number,
+                default: 3000
+            },
+        },
         data(){
             return {
                 currentSwiperIndex: 0,
-                swipersNum: 0
+                swipersNum: 0,
+                timeout: null
             }
         },
         mounted(){
@@ -19,6 +28,11 @@
             for(let i = 0; i < this.swipersNum; i++){
                 this.$children[i].$el.style = `transform: translate(${100 * i}%, 0px)`;
             }
+            
+            this.startAutoplay();
+        },
+        destroyed(){
+            clearInterval(this.timeout);
         },
         methods: {
             handleTouchStart: function(e){
@@ -36,6 +50,26 @@
                 this.toggleSwiperAnimation(index);
                 this.currentSwiperIndex = index;
             },
+            //自动播放轮播
+            startAutoplay: function(){
+                console.log('duration: ', this.duration);
+                if(this.timeout === null){
+                    this.timeout = setInterval(()=>{
+                        let index = this.currentSwiperIndex + 1;
+                        if(index > this.swipersNum) return;
+
+                        this.toggleSwiperAnimation(index);
+                        this.currentSwiperIndex = index;
+                        
+                        //自动滑动到了最后，从头开始
+                        if(this.currentSwiperIndex === this.swipersNum) {
+                            this.currentSwiperIndex = 0;
+                            this.toggleSwiperAnimation(0);
+                        }
+                    }, this.duration);
+                }
+            },
+            //轮播切换动画
             toggleSwiperAnimation: function(index){
                 for(let i = 0, len = this.$children.length; i < len; i++){
                     this.$children[i].$el.style = `transform: translate(${(i - index) * 100}%, 0px)`;
