@@ -28,8 +28,8 @@
             for(let i = 0; i < this.swipersNum; i++){
                 this.$children[i].$el.style = `transform: translate(${100 * i}%, 0px)`;
             }
-            
-            this.startAutoplay();
+
+            if(this.autoplay) this.startAutoplay();
         },
         destroyed(){
             clearInterval(this.timeout);
