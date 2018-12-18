@@ -20,6 +20,6 @@ export default {
 <style scoped>
     .swiper-item{
         position: absolute;
-        transition: tranform 500ms ease-out;
+        transition: transform 500ms ease-in-out;
     }
 </style>

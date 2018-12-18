@@ -1,9 +1,9 @@
 <template>
     <swiper class="swiper">
-        <swiper-item class="swiper-item">1111</swiper-item>
-        <swiper-item class="swiper-item">2222</swiper-item>
-        <swiper-item class="swiper-item">3333</swiper-item>
-        <swiper-item class="swiper-item">4444</swiper-item>
+        <swiper-item><div style="width: 100%; height: 100%;background-color: red;"></div></swiper-item>
+        <swiper-item><div style="width: 100%; height: 100%;background-color: green;"></div></swiper-item>
+        <swiper-item><div style="width: 100%; height: 100%;background-color: black;"></div></swiper-item>
+        <swiper-item><div style="width: 100%; height: 100%;background-color: white;"></div></swiper-item>
     </swiper>
 </template>
 <script>
