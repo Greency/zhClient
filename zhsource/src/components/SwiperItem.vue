@@ -17,9 +17,18 @@ export default {
 }
 </script>
 
-<style scoped>
+<style  lang="stylus">
     .swiper-item{
         position: absolute;
-        transition: transform 500ms ease-in-out;
+        /*transition: transform 500ms ease-in-out;*/
     }
+    
+    .swiper-item-left
+        transform translate(-100%, 0)
+
+    .swiper-item-middle
+        transform translate(0, 0)
+
+    .swiper-item-right
+        transform translate(100%, 0)
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <swiper class="swiper">
+    <swiper class="swiper" autoplay>
         <swiper-item><div style="width: 100%; height: 100%;background-color: red;"></div></swiper-item>
         <swiper-item><div style="width: 100%; height: 100%;background-color: green;"></div></swiper-item>
         <swiper-item><div style="width: 100%; height: 100%;background-color: black;"></div></swiper-item>
